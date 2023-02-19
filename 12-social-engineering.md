@@ -29,6 +29,7 @@ Defenses can be physical, technical or operational measures
 ### physical : 
 man trap / air lock - manual or automatic
 Cross-over Error Rate / False Reject Rate / False Aceeptance Rate
+
 ![](https://rehost.diberie.com/Picture/Get/f/153271)
 
 ### technical : e.g. 2FA
