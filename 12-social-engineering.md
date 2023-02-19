@@ -30,6 +30,7 @@ Defenses can be physical, technical or operational measures
 man trap / air lock - manual or automatic
 Cross-over Error Rate / False Reject Rate / False Aceeptance Rate
 ![](https://rehost.diberie.com/Picture/Get/f/153271)
+
 ### technical : e.g. 2FA
 authentication 3 factors : something you know (id, password), sthg you have (key), smth you are (eye, fingerprint)
 ### operational : e.g. key management 
