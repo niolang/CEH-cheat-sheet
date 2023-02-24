@@ -1,0 +1,99 @@
+# Footprinting and reconnaissance
+= gathing information
+passive : without direct interaction with the target
+active : with direct interraction
+
+![](https://rehost.diberie.com/Picture/Get/f/153742)
+
+## people search / social media
+people search : spokeo
+tool : theHarvester for linkedin
+BuzzSumo, Google Trends, Hashatit, and Ubersuggest
+Followerwonk 
+gephi : visualization tool
+sherlock.py : sweep social media platforms
+
+## Tools 
+advanced google techniques 
+ghdb google hacking database exploit-db / google dorks
+google dorks example : " allintitle: detect malware " "allinurl:"
+youtube metadata
+napalm ftp indexer
+Shodan
+Censys : discovers servers exposed on internet
+Electronic Data Gathering, Analysis, and Retrieval system (EDGAR) performs automated submissions by companies required by US laws
+d&b hoovers business records
+USPTO INPI EPO
+Recon-ng : public repo like github
+website mirroring : httrack.com archive.org photon
+octoparse : data extraction
+aignes.com : website change tracker
+
+email tracking : eMailTrackerPro, Infoga, and Mailtrack
+
+### region tracking
+Regional Internet Registries (RIRs) 
+American Registry for Internet Numbers (ARIN)
+African Network Information Center (AFRINIC) 
+Asia Pacific Network Information Center (APNIC) 
+Réseaux IP Européens Network Coordination Centre (RIPE) 
+Latin American and Caribbean Network Information Center (LACNIC)
+
+ip2location.com
+
+## DNS footprinting
+tld top level domain / subdomain using netcraft
+sublist3r.py : enumerating subdomains through osint
+
+|record type|description|
+|-|-|
+|A|host IP|
+|MX|domain’s mail server|
+|NS|host name server|
+|cname|aliases|
+|SOA|authority|
+|srv|service records|
+|ptr|maps ip adress to hostname|
+|rp|responsible person|
+|hinfo|host info (cpu, os)|
+|txt|text records|
+
+dns enumeration tools : SecurityTrails, 
+reverse dns lookup : dnsrecon.py, reverse lookup, 
+
+## network footprinting
+IANA has reserved the following three blocks of IP address space for private internets: 
+10.0.0.0–10.255.255.255 (10/8 prefix)
+172.16.0.0–172.31.255.255 (172.16/12 prefix)
+192.168.0.0–192.168.255.255 (192.168/16 prefix).
+
+traceroute : icmp + ttl
+tcp / udp traceroute
+Traceroute tools : Path Analyzer Pro, VisualRoute, Traceroute NG, and PingPlotter, 
+
+### footprinting tools
+maltego
+recon-ng : recon/domains-hosts/brute_hosts
+Fingerprinting Organizations with Collected Archives (FOCA)
+OSINT Framework
+BillCipher
+Spyse
+Grecon, theHarvester, Th3Inspector, Raccoon, Orb
+#### OSRFramework 
+usufy.py – Checks for a user profile on up to 290 different platforms
+mailfy.py – Check for the existence of a given email
+`searchfy.py -q <username>` – Performs a query on the platforms in OSRFramework
+domainfy.py - Checks for the existence of domains
+phonefy.py – Checks for the existence of a given series of phones
+entify.py – Uses regular expressions to extract entities
+#### Recon-Dog
+Censys: Uses censys.io to gather a massive amount of information about an IP address.
+NS lookup: Performs name server lookup 
+Port scan: Scans most common TCP ports
+Detect CMS: Can detect 400+ content management systems
+Whois lookup: Performs a Whois lookup 
+Detect honeypot: Uses shodan.io to check if the target is a honeypot 
+Find subdomains: Uses findsubdomains.com to find subdomains
+Reverse IP lookup: Performs a reverse IP lookup to find domains associated with an IP address
+Detect technologies: Uses wappalyzer.com to detect 1000+ technologies 
+All: Runs all utilities against the target
