@@ -1,0 +1,39 @@
+# Enumeration
+for following protocols:
+Network Basic Input/Output System (NetBIOS) -  - smb over netbios - tcp 139 - datagram services udp138 ///// tools : nbtstat utility / netbios enumerator / nmap / Nsauditor Network Security Auditor / Hyena / Advanced IP Scanner / Global Network Inventory
+NetBios Name Service (NBNS) - udp 137
+Simple Network Management Protocol (SNMP) - udp 131  // SNMP trap - tcp/udp 162 // tools : snmp walk / nmap / snmp-check / softperfect network scanner / Network Performance Monitor / OpUtils /PRTG Network Monitor / Engineer’s Toolset
+Lightweight Directory Access Protocol (LDAP) - tcp 389 // ldap3.py / ldap-brute nse script (nmap) / Softerra LDAP Administrator / ldap search / AD Explorer /  LDAP Admin Tool / LDAP Account Manager / LDAP Search
+Network Time Protocol (NTP) / tools sensor ntp / nmap / wireshark / udp-proto-scanner / ntp server scanner
+Network File System (NFS) - tcp 2049 - rpcinfo / showmount / rpcscan / superenum / 
+Simple Mail Transfer Protocol (SMTP) - tcp 25 /  NetScanTools Pro / smtp-user-enum / 
+Domain Name System (DNS) - tcp/udp 53 / dns zone transher attack : tool dig ns / nslookup / dnsrecon / 
+```
+nslookup 
+set query
+type=soa <target domain>
+```
+SOA = start of authority
+`dig @<IP of DNS server> <Target domain> A +recurse`  
+high ttl record indicates that the record was not in the cache
+
+Internet Protocol Security (IPsec)
+Voice over Internet Protocol (VoIP) - Svmap
+remote procedure call (RPC) - tcp/udp 135
+Linux/Unix - rusers / rwho / finger / 
+Telnet - TCP 23
+File Transfer Protocol (FTP) - TCP 20/21
+Trivial FTP (TFTP) - udp 69
+Server Message Block (SMB) - smb over tcp - tcp/upd 445 - tools : net view / 
+Internet Protocol version 6 (IPv6) - enyx.py / ipv6 hackit / 
+Border Gateway Protocol (BGP) - tcp 179 
+Internet key exchange (IKE) - UDP 500 - ike-scan
+Secure Shell (SSH) - tcp 22
+Global catalog Service - tcp/udp 3268
+Session Initiation Protocol (SIP) - tcp/udp 5060, 5061
+
+
+remote inter-process communication (IPC) 
+
+## Enumeration countermeasures
+In cybersecurity, a canary refers to a virtual or physical device, developed by the cybersecurity company Thinkst, that can imitate almost any kind of device
