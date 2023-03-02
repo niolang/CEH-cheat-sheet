@@ -1,0 +1,102 @@
+# Scanning Networks
+TCP communication flag
+Synchronize or “SYN”: It notifies the transmission of a new sequence number. This flag generally represents the establishment of a connection (three-way handshake) between two hosts.
+Acknowledgement or “ACK”: It confirms the receipt of the transmission and identifies the next expected sequence number. When the system successfully receives a packet, it sets the value of its flag to “1,” thus implying that the receiver should pay attention to it.
+Push or “PSH”: When it is set to “1,” it indicates that the sender has raised the push operation to the receiver; this implies that the remote system should inform the receiving application about the buffered data coming from the sender. The system raises the PSH flag at the start and end of data transfer and sets it on the last segment of a file to prevent buffer deadlocks.
+Urgent or “URG”: It instructs the system to process the data contained in packets as soon as possible. When the system sets the flag to “1,” priority is given to processing the urgent data first and all the other data processing is stopped.
+Finish or “FIN”: It is set to “1” to announce that no more transmissions will be sent to the remote system and the connection established by the SYN flag is terminated.
+Reset or “RST”: When there is an error in the current connection, this flag is set to “1” and the connection is aborted in response to the error. Attackers use this flag to scan hosts and identify open ports.
+
+tcp 3way handshake
+syn seq#10 >> syn + ack ack#11 seq#95 >> ack ack#96 seq#11
+terminating connection
+fin seq#50 >> ack ack#51 seq#130 + fin seq#131 >> ack ack#132, seq#51
+
+NMap
+hping3
+	-A ack -F fin -P push -U urg -S syn
+	-1 ping sweep
+	-2 udp scan
+	-Q collects tcp sequence #
+	--tcp-timestamp
+	-8 22-80 or --scan  range of port 22 to 80
+	-9 listen mode
+metasploit, sx, unicornscan, solarwinds port scanner, prtg network monitor, omnipeek network protocol analyser
+
+## host discovery techniques
+ARP ping scan : response = active
+UDP ping scan : response = active
+ICMP ping scan : icmp reply = active
+	ICMP echo ping
+		ICMP echo ping sweep
+	ICMP timestamp ping
+	ICMP addresss mask ping
+TCP ping scan
+	TCP SYN ping : response = ack : active host
+	TCP ACK ping : response = rst : active host
+IP protocol scan
+
+tools : angry ip scanner, SolarWinds Engineer’s Toolset, NetScanTools Pro, Colasoft Ping Tool, Visual Ping Tester, OpUtils
+
+## port and services discovery
+TCP Scanning: 
+	Open TCP Scanning Methods 
+		TCP Connect/Full-open Scan
+	Stealth TCP Scanning Methods 
+		Half-open Scan 
+		Inverse TCP Flag Scan 
+			Xmas Scan 
+			FIN Scan 
+			NULL Scan 
+			Maimon Scan : fin/ack : if no response active, if closed rst, if filtered icmp error
+		ACK Flag Probe Scan 
+			TTL-Based Scan 
+			Window-Based Scan
+	Third Party and Spoofed TCP Scanning Methods 
+		IDLE/IP ID Header Scan
+UDP Scanning
+SCTP Scanning
+	SCTP INIT Scanning 
+	SCTP COOKIE/ECHO Scanning
+SSDP Scanning: 
+	SSDP and list scanning
+IPv6 scanning
+
+## os discovery
+### banner grabbing
+|OS|TTL|TCP win size|
+|-|-|-|
+|Linux|64|5840|
+|freebsd|64|65535|
+|openbsd|255|1638|
+|windows|128|65535 to 1GB|
+|cisco routers|255|4128|
+|solaris|255|8760|
+|AIX|255|16384|
+
+tools : unicorn scan, ipv6 fingerprinting, wireshark, nmap
+
+## scanning beyond IDS and Firewall
+Packet Fragmentation 
+Source Routing 
+Source Port Manipulation 
+IP Address Decoy 
+IP Address Spoofing 
+MAC Address Spoofing 
+Creating Custom Packets 
+Randomizing Host Order 
+Sending Bad Checksums 
+Proxy Servrers
+Anonymizers
+
+### proxy
+
+### anonymizers
+Psiphon (https://psiphon.ca) ▪ TunnelBear (https://www.tunnelbear.com) ▪ Invisible Internet Project (I2P) (https://geti2p.net) ▪ JonDo 
+
+## Countermeasures
+Snort, IDS, IPS, DMZ, TTL, IP IP,
+
+ingress/egress filtering against ip spoofing
+Behemoth
+extrahop, splunk, scanlogd, vectra cognito detect, ibm security qradar xdr, cynet360
